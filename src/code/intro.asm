@@ -685,7 +685,7 @@ Data_001_72CB::
     db   $00, $00, $00, $00, $00, $00, $00, $00   ; $72D5 ; $72D5
     db   $00                                      ; $72DD
 
-IF __PATCH_6__
+IF LANG_JP
 TILE_A = $01
 TILE_B = $02
 ELSE
@@ -1453,7 +1453,7 @@ jr_001_77ED::
     ld   [wOAMNextAvailableSlot], a               ; $7804: $EA $C0 $C3
     ret                                           ; $7807: $C9
 
-IF __PATCH_6__
+IF LANG_JP
 Data_001_7808::
     db   $00, $10, $2C, $05
     db   $10, $10, $2A, $05
@@ -1567,7 +1567,7 @@ Data_001_7870::
 ENDC
 
 Data_001_7898::
-IF __PATCH_6__
+IF LANG_JP
     db   $AC, $AC, $6C
 ELSE
     db   $54, $58, $68                            ; $7898
@@ -1580,14 +1580,14 @@ Data_001_789C::
     db   $00, $04, $18                            ; $789C
 
 Data_001_789F::
-IF __PATCH_6__
+IF LANG_JP
     db   $1C
 ELSE
     db   $6C                                      ; $789F
 ENDC
 
 Data_001_78A0::
-IF __PATCH_6__
+IF LANG_JP
          ; Loaded in $18 byte chunks
     db   $F5, $7A, $00, $00, $00, $00, $00, $00
     db   $F5, $7A, $FF, $7F, $FF, $7F, $FF, $7F
@@ -1655,7 +1655,7 @@ func_001_7920::
     dec  [hl]                                     ; $7927: $35
     ret                                           ; $7928: $C9
 
-IF __PATCH_6__
+IF LANG_JP
 X_POS = $79
 Y_OFFSET = $46
 ELSE
@@ -1711,7 +1711,7 @@ ENDC
     jr   .jr_001_797D                             ; $797B: $18 $00
 
 .jr_001_797D_a
-IF __PATCH_6__
+IF LANG_JP
     ld   hl, wD016
     ld   a, [hl+]
     ld   b, [hl]
@@ -1779,7 +1779,7 @@ ENDC
 
 .jr_001_7997
     ld   a, [wD013]                               ; $7997: $FA $13 $D0
-IF __PATCH_6__
+IF LANG_JP
     cp   $04
     jr   z, .jr_001_79A5
 ELSE
@@ -1814,7 +1814,7 @@ func_001_79AE::
 
 func_001_79C2::
     ; bc = a * CHUNKSIZE
-IF __PATCH_6__
+IF LANG_JP
 CHUNKSIZE = $18
     ld   b, a
     sla  a
@@ -1852,7 +1852,7 @@ ENDC
     ld   [$DDD1], a                               ; $79E8: $EA $D1 $DD
     ret                                           ; $79EB: $C9
 
-IF __PATCH_6__
+IF LANG_JP
 func_001_7BC3:
     call GetRandomByte
     or   $20
